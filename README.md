@@ -1,5 +1,5 @@
 # CMPE 273 Week 1 Lab
-## Author of this project: Hei Lam (014751503)
+## Author of this project: Hei Lam (SJSU SID: 014751503)
 
 ## Objective
 The goal of this lab is to experience the core characteristics of a distributed system by building a small but real system locally.
