@@ -122,3 +122,26 @@ Expected behavior:
 ### Case 3 Timeout/Slow Dependency
 ### (Both Service A on again)
 ![The result of Service B](5.png)
+
+## Failure Scenario Explanation
+This lab demonstrates how failure propagates across service boundaries in a distributed system using two independently running services.
+
+### Normal Operation
+When both Service A and Service B are running, Service B successfully sends an HTTP request to Service A's /data endpoint. Service A responds normally, and Service B returns a combined response with HTTP 200. The logs in both services show successful request handling.
+
+### Failure Scenario 1: Service A Timeout (HTTP 504)
+In this scenario, Service A is running but responds slowly (for example, via the /slow endpoint).
+Service B sends a request to Service A with a configured timeout. When Service A does not respond within the timeout window, Service B detects a timeout exception and returns HTTP 504 (Gateway Timeout).
+
+This demonstrates:
+- Service A is reachable but slow
+- Service B remains operational
+- Time-based failures propagate as timeouts rather than crashes
+
+### Failure Scenario 2: Service A Unavailable (HTTP 503)
+In this scenario, Service A is completely stopped and no process is listening on its port. When Service B attempts to call Service A, the network connection fails immediately. Service B catches the connection error and returns HTTP 503 (Service Unavailable).
+
+This demonstrates:
+- Independent failure of Service A
+- Service B does not terminate or crash
+- Service B degrades gracefully and reports downstream unavailability
