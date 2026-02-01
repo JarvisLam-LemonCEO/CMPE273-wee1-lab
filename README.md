@@ -149,7 +149,7 @@ Expected behavior:
 
 ### Case 4: Connection is Refused
 ### (Service A is off)
-![The result of Service B](6.png)
+![The result of Service B](7.png)
 
 ## Failure Scenario Explanation
 This lab demonstrates how failure propagates across service boundaries in a distributed system using two independently running services.
