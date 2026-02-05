@@ -43,4 +43,5 @@ def slow():
 # Runs Service A as an independent process on port 5001
 if __name__ == "__main__":
     # Port 5001 for Service A
+    # you can change it to 8080
     app.run(host="127.0.0.1", port=5001)
