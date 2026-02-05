@@ -151,6 +151,9 @@ Expected behavior:
 ### (Service A is off)
 ![The result of Service B](7.png)
 
+## What makes this distributed?
+This system is distributed because it consists of two independent services (Service A and Service B) running as separate processes that communicate over the network using HTTP rather than direct function calls. Each service has its own port, runtime, and failure behavior, meaning they can start, stop, or fail independently. Service B depends on Service A through network requests and must handle timeouts or connection failures gracefully, demonstrating real-world distributed system characteristics such as network communication, partial failures, and service isolation.
+
 ## Failure Scenario Explanation
 This lab demonstrates how failure propagates across service boundaries in a distributed system using two independently running services.
 
